@@ -1,0 +1,98 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: linear-gradient(-45deg, #ffecd2, #fcb69f, #a1c4fd, #c2e9fb);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.board {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+}
+.card {
+  width: 80px;
+  height: 80px;
+  perspective: 1000px;
+  position: relative;
+}
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+}
+.card-back {
+  background: linear-gradient(145deg, #3498db, #2980b9);
+  border: 2px solid #226699;
+}
+.card-front {
+  background: #fff;
+  transform: rotateY(180deg);
+}
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+.card.matched .card-inner {
+  box-shadow: 0 0 10px 2px limegreen;
+}
+.message {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #4caf50;
+  margin-top: 10px;
+}
+.hidden {
+  display: none;
+}
+.leaderboard {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #f3f9ff;
+  border: 2px dashed #007acc;
+  border-radius: 10px;
+}
+.leaderboard h3 {
+  margin-top: 0;
+}
+.leaderboard ol {
+  padding-left: 20px;
+}
+.leaderboard li {
+  margin: 5px 0;
+  font-weight: bold;
+}
